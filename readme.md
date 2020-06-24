@@ -1,12 +1,17 @@
 # Spring Boot Demo 
+[github](https://github.com/asmburning/BootDemo)
 
 ## Just a demo to integrate Mybatis Plus, H2 Database, Redis Template, Lettuce to show the simple use case
 
 ## Requirements
-Benefit from embedded database and embedded redis server, 
-JDK 8 and Lombok plugin is all you need.
-Because RabbitMq don't have an embedded middleware, and Spring Cloud need more than one middleware,
-It is not easy to run the demo instantly.
+Benefit from embedded database and embedded redis server, all you need are
+- JDK8
+- Lombok plugin
+
+
+*Because RabbitMq don't have an embedded middleware, and Spring Cloud need more than one middleware,
+It is not easy to run the demo instantly, So this demo won't include rabbit and Spring Cloud.*
+[My Previous RabbitMq Demo](https://github.com/asmburning/rabbit-demo)
 
 ## Middleware
 - embedded h2 database 

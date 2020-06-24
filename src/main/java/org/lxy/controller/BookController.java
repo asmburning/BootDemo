@@ -18,7 +18,13 @@ public class BookController {
     @RequestMapping("/getPage")
     public Object getPage(@RequestParam(defaultValue = "1", required = false) int pageNo,
                           @RequestParam(defaultValue = "5", required = false) int pageSize) {
-        return doubanService.page(new BasePageRequest(pageNo, pageSize));
+        try {
+
+            return doubanService.page(new BasePageRequest(pageNo, pageSize));
+        } catch (Exception e) {
+            log.error("getPage error ", e);
+            return null;
+        }
     }
 
     @RequestMapping("/restPage/{pageSize}/{pageNo}")
