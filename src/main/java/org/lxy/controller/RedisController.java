@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @RequestMapping("/redis")
 @Slf4j
-public class TestRedis {
+public class RedisController {
 
     @Resource
     private RedisTemplate redisTemplate;

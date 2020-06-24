@@ -17,16 +17,10 @@ import javax.annotation.Resource;
 @SpringBootApplication
 @Slf4j
 public class BootDemo {
-    @Resource
-    private ObjectMapper objectMapper;
 
     public static void main(String[] args) {
         SpringApplication.run(BootDemo.class, args);
         log.info("---------------BootDemo Start Success------------");
     }
 
-    @PostConstruct
-    public void setUp() {
-        objectMapper.registerModule(new JavaTimeModule());
-    }
 }
