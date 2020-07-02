@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Range;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,6 +26,8 @@ import java.util.stream.IntStream;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class DoubanServiceImpl implements DoubanService {
 
     @Resource
