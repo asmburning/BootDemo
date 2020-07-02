@@ -8,6 +8,8 @@ Benefit from embedded database and embedded redis server, all you need are
 - JDK8
 - Lombok plugin
 
+network connection to [DouBan](https://book.douban.com/top250?start=0)
+
 
 *Because RabbitMq don't have an embedded middleware, and Spring Cloud need more than one middleware,
 It is not easy to run the demo instantly, So this demo won't include rabbit and Spring Cloud.*

@@ -17,15 +17,11 @@ import java.util.TimeZone;
 @NoArgsConstructor
 @Builder
 @TableName("T_BOOK")
-public class Book {
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+public class Book extends BaseModel{
+
     private String bookName;
     private String remark;
     private String rating;
     private String quote;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime createTime;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime updateTime;
+
 }

@@ -47,7 +47,7 @@ public class DoubanServiceImpl implements DoubanService {
     private List<String> getURLList() {
         final String top250BooksBaseUrl = "https://book.douban.com/top250?start=";
         return IntStream.range(0, 2)
-                .mapToObj(a -> top250BooksBaseUrl + String.valueOf(a))
+                .mapToObj(a -> top250BooksBaseUrl + String.valueOf(a * 25))
                 .collect(Collectors.toList());
     }
 
