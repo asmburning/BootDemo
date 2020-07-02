@@ -7,7 +7,7 @@
 Benefit from embedded database and embedded redis server, all you need are
 - JDK8
 - Lombok plugin
-
+- network connection to google or douban(default) just change application.yml to change the value
 network connection to [DouBan](https://book.douban.com/top250?start=0)
 
 

@@ -1,21 +1,13 @@
 package org.lxy.service;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Range;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
-import org.lxy.api.BasePageRequest;
 import org.lxy.dao.BookMapper;
 import org.lxy.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,13 +20,18 @@ import java.util.stream.IntStream;
 @Slf4j
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class DoubanServiceImpl implements DoubanService {
+public class CrawlBookDouBanServiceImpl implements CrawlBookService {
 
     @Resource
     private BookMapper bookMapper;
 
     @Override
-    public void crawlDouban() {
+    public String siteName() {
+        return "douban";
+    }
+
+    @Override
+    public void crawlBook() {
         Consumer<List<Book>> bookListConsumer = books -> books.forEach(book -> bookMapper.insert(book));
         List<List<Book>> collect = getURLList().parallelStream()
                 .map(this::parseDoubanBook)
@@ -59,7 +56,7 @@ public class DoubanServiceImpl implements DoubanService {
                     .get();
         } catch (Exception e) {
             log.error("parseDoubanBook url:{}", url, e);
-            throw new RuntimeException("parseDoubanBookErrorWithUrl:{}" + url);
+            throw new RuntimeException("----networkError:{}" + url);
         }
         Elements bookTables = document.select("#content > div > div.article > div > table");
         return bookTables.stream()
@@ -75,17 +72,4 @@ public class DoubanServiceImpl implements DoubanService {
 
     }
 
-    @Override
-    public List<Book> page(BasePageRequest request) {
-        log.info("-----query page--- request:{}", request);
-        return bookMapper.selectPage(new Page<>(request.getPageNo(), request.getPageSize()),
-                new QueryWrapper<Book>())
-                .getRecords();
-    }
-
-    @Override
-    public List<Book> queryByName(String bookName) {
-        return bookMapper.selectList(new QueryWrapper<Book>()
-                .eq("book_name", bookName));
-    }
 }

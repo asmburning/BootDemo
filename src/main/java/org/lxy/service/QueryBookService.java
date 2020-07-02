@@ -5,9 +5,7 @@ import org.lxy.model.Book;
 
 import java.util.List;
 
-public interface DoubanService {
-
-    void crawlDouban();
+public interface QueryBookService {
 
     List<Book> page(BasePageRequest request);
 
