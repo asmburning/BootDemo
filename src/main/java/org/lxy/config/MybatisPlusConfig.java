@@ -23,22 +23,4 @@ public class MybatisPlusConfig {
         return paginationInterceptor;
     }
 
-    @Bean("mybatisPlusAutoFill")
-    public MetaObjectHandler mybatisMetaObjectHandler(){
-        MetaObjectHandler metaObjectHandler = new MetaObjectHandler() {
-            @Override
-            public void insertFill(MetaObject metaObject) {
-                this.strictInsertFill(metaObject, "id", Long.class, IdWorker.getId());
-                this.strictInsertFill(metaObject, "create_time", LocalDateTime.class, LocalDateTime.now());
-                this.strictInsertFill(metaObject, "update_time", LocalDateTime.class, LocalDateTime.now());
-            }
-
-            @Override
-            public void updateFill(MetaObject metaObject) {
-                this.strictUpdateFill(metaObject, "update_time", LocalDateTime.class, LocalDateTime.now());
-            }
-        };
-
-        return metaObjectHandler;
-    }
 }

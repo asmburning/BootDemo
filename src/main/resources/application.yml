@@ -17,9 +17,18 @@ spring:
 mybatis-plus:
   mapper-locations:
     - classpath:/mapper/*Mapper.xml
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      capital-mode: true
+      id-type: assign_id
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 crawl:
 #  site: douban
   site: google
+
+logging:
+  level:
+    org.apache.ibatis: debug
+    com.baomidou.mybatisplus: debug

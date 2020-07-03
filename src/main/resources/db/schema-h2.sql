@@ -7,7 +7,7 @@ CREATE TABLE T_BOOK
 	remark VARCHAR(255)  COMMENT 'remark',
 	quote VARCHAR(255)  COMMENT 'quote',
 	rating VARCHAR(255)  COMMENT 'rating',
-	create_time TIMESTAMP WITHOUT TIME ZONE DEFAULT now() COMMENT 'create_time',
-	update_time TIMESTAMP WITHOUT TIME ZONE DEFAULT now() COMMENT 'update_time',
+	create_time TIMESTAMP WITHOUT TIME ZONE COMMENT 'create_time',
+	update_time TIMESTAMP WITHOUT TIME ZONE COMMENT 'update_time',
 	PRIMARY KEY (id)
 );
