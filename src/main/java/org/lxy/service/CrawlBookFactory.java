@@ -1,6 +1,5 @@
 package org.lxy.service;
 
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +10,18 @@ import java.util.stream.Collectors;
 
 /**
  * 2020/7/2
+ * simple factory pattern
+ * concentrate the create logic, encapsulate the changes
+ * if everybody decide what kind of crawlService, once requirements changes,
+ * everybody need change their code.
  */
 @Component
-public class CrawlBookRouter {
+public class CrawlBookFactory {
     private Map<String, CrawlBookService> crawlBookServiceMap;
 
     @Autowired
-    public void CustomMapFromListDynamicAutowireService(List<CrawlBookService> regionServices) {
-        crawlBookServiceMap = regionServices.stream()
+    public void CustomMapFromListDynamicAutowireService(List<CrawlBookService> crawlBookServices) {
+        crawlBookServiceMap = crawlBookServices.stream()
                 .collect(Collectors.toMap(CrawlBookService::siteName, Function.identity()));
     }
 
