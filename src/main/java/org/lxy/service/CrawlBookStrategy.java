@@ -10,13 +10,12 @@ import java.util.stream.Collectors;
 
 /**
  * 2020/7/2
- * simple factory pattern
- * concentrate the create logic, encapsulate the changes
- * if everybody decide what kind of crawlService, once requirements changes,
- * everybody need change their code.
+ * simple strategy pattern
+ * concentrate the strategy logic, encapsulate the changes
+ * if everybody decide what kind of crawlService, once requirements changes,everybody need change their code.
  */
 @Component
-public class CrawlBookFactory {
+public class CrawlBookStrategy {
     private Map<String, CrawlBookService> crawlBookServiceMap;
 
     @Autowired
