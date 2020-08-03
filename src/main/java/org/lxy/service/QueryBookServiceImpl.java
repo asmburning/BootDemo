@@ -25,13 +25,15 @@ public class QueryBookServiceImpl implements QueryBookService{
     public List<Book> page(BasePageRequest request) {
         log.info("-----query page--- request:{}", request);
         return bookMapper.selectPage(new Page<>(request.getPageNo(), request.getPageSize()),
-                new QueryWrapper<Book>())
+                new QueryWrapper<>())
                 .getRecords();
     }
 
     @Override
     public List<Book> queryByName(String bookName) {
-        return bookMapper.selectList(new QueryWrapper<Book>()
+        List<Book> bookList = bookMapper.selectList(new QueryWrapper<Book>()
                 .eq("book_name", bookName));
+        log.info(bookName + bookList.size());
+        return bookList;
     }
 }

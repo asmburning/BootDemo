@@ -21,14 +21,19 @@ mybatis-plus:
     db-config:
       capital-mode: true
       id-type: assign_id
-#  configuration:
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configuration:
+    use-actual-param-name: true
+    map-underscore-to-camel-case: true
+
+#    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 crawl:
-#  site: douban
-  site: google
+  site: douban
+#  site: google
 
 logging:
   level:
     org.apache.ibatis: debug
+    org.mybatis: debug
     com.baomidou.mybatisplus: debug

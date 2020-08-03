@@ -43,13 +43,13 @@ public class CrawlBookDouBanServiceImpl implements CrawlBookService {
 
     private List<String> getURLList() {
         final String top250BooksBaseUrl = "https://book.douban.com/top250?start=";
-        return IntStream.range(0, 2)
-                .mapToObj(a -> top250BooksBaseUrl + String.valueOf(a * 25))
+        return IntStream.range(0, 1)
+                .mapToObj(a -> top250BooksBaseUrl + a * 25)
                 .collect(Collectors.toList());
     }
 
     private List<Book> parseDoubanBook(String url) {
-        Document document = null;
+        Document document;
         try {
             document = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36")
