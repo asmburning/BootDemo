@@ -1,6 +1,7 @@
 package org.lxy.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.lxy.anno.Auth;
 import org.lxy.api.BasePageRequest;
 import org.lxy.dao.BookMapper;
 import org.lxy.model.Book;
@@ -22,6 +23,7 @@ public class BookController {
     private BookMapper bookMapper;
 
     @RequestMapping("/getPage")
+    @Auth
     public Object getPage(@RequestParam(defaultValue = "1", required = false) int pageNo,
                           @RequestParam(defaultValue = "5", required = false) int pageSize) {
         return queryBookService.page(new BasePageRequest(pageNo, pageSize));
