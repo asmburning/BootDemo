@@ -16,9 +16,12 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class AuthAspect {
 
+    // https://docs.spring.io/spring/docs/4.3.15.RELEASE/spring-framework-reference/html/aop.html#aop-pointcuts-designators
+    // Spring support 9 kind of pointcuts
     @Around("@annotation(org.lxy.anno.Auth)")
     public Object auth(ProceedingJoinPoint joinPoint) throws Throwable{
         Signature signature = joinPoint.getSignature();
+        // https://stackoverflow.com/questions/29803323/access-httpservletrequest-object-inside-aspect-which-one-is-better-solution-bet
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
 
         Object result = joinPoint.proceed();
