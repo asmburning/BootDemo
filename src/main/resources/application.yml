@@ -37,3 +37,13 @@ logging:
     org.apache.ibatis: debug
     org.mybatis: debug
     com.baomidou.mybatisplus: debug
+
+props:
+  name: jack
+  age: 23
+  maps: {k1: v1, K2: v2}
+  lists:
+    - a
+    - b
+    - c
+    - d
