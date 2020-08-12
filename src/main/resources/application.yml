@@ -13,6 +13,8 @@ spring:
   redis:
     host: localhost
     port: 6379
+  aop:
+    proxy-target-class: true
 
 mybatis-plus:
   mapper-locations:

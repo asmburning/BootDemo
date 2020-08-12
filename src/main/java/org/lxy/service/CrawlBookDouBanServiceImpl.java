@@ -9,6 +9,7 @@ import org.jsoup.select.Elements;
 import org.lxy.dao.BookMapper;
 import org.lxy.model.Book;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -31,6 +32,7 @@ public class CrawlBookDouBanServiceImpl implements CrawlBookService {
     }
 
     @Override
+    @Transactional
     public void crawlBook() {
         Consumer<List<Book>> bookListConsumer = books -> books.forEach(book -> bookMapper.insert(book));
         List<List<Book>> collect = getURLList().parallelStream()
