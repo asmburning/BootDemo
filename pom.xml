@@ -11,7 +11,18 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+
+        <spring.boot.version>2.5.4</spring.boot.version>
+
+        <guava.version>30.1.1-jre</guava.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+
+        <jsoup.version>1.14.2</jsoup.version>
+
+        <mybatis-plus.version>3.4.3.2</mybatis-plus.version>
+
+        <embedded-redis.version>0.7.3</embedded-redis.version>
+
     </properties>
 
     <dependencyManagement>
@@ -32,7 +43,6 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
             <scope>provided</scope>
         </dependency>
 
@@ -54,19 +64,19 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.3.2</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.14.2</version>
+            <version>${jsoup.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>29.0-jre</version>
+            <version>${guava.version}</version>
         </dependency>
 
         <dependency>
@@ -78,13 +88,13 @@
         <dependency>
             <groupId>it.ozimov</groupId>
             <artifactId>embedded-redis</artifactId>
-            <version>0.7.3</version>
+            <version>${embedded-redis.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.10</version>
+            <version>${commons-lang3.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
